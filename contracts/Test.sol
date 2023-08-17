@@ -263,3 +263,9 @@ library LibraryHasStruct {
 
     function foo() internal returns (Inner memory) {}
 }
+
+contract MappingOfStructs {
+    mapping(uint => S) ms;
+
+    function _testMappingStructValue(mapping(uint => S) storage t) internal {}
+}

@@ -449,7 +449,7 @@ function getType(typeName: TypeName, context: ContractDefinition, deref: ASTDere
     throw new Error('Missing type information');
   }
 
-  let type = typeString.replace(/^(struct|enum|contract) /, '') + (typeIdentifier.endsWith('_ptr') && location ? ` ${location}` : '');
+  let type = typeString.replace(/\b(struct|enum|contract) /, '') + (typeIdentifier.endsWith('_ptr') && location ? ` ${location}` : '');
 
   const typeScopeMatch = type.match(/^([a-zA-Z0-9_$]+)\./);
   if (context.contractKind !== 'library' && typeScopeMatch) {
